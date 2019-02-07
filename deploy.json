@@ -1,0 +1,7 @@
+{
+    "REPO_URL"  : "https://github.com/jungmannn/first.git",
+    "PROJECT_NAME"  : "first",
+    "REMOTE_HOST"  : "ec2-52-79-160-167.ap-northeast-2.compute.amazonaws.com",
+    "REMOTE_HOST_SSH"  : "52.79.160.167",
+    "REMOTE_USER" : "ubuntu"
+}
