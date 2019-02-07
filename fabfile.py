@@ -8,14 +8,6 @@ print(PROJECT_DIR)
 
 envs = json.load(open(os.path.join(PROJECT_DIR, 'deploy.json')))
 print(envs)
-'''
-    "REPO_URL"  : "https://github.com/jungmannn/first.git",
-    "PROJECT_NAME"  : "first",
-    "REMOTE_HOST"  : "ec2-52-79-160-167.ap-northeast-2.compute.amazonaws.com",
-    "REMOTE_HOST_SSH"  : "52.79.160.167",
-    "REMOTE_USER" : "ubuntu"
-'''
-
 REPO_URL = envs['REPO_URL']  
 PROJECT_NAME = envs['PROJECT_NAME']    
 REMOTE_HOST = envs['REMOTE_HOST']    
@@ -48,17 +40,9 @@ apt_requirements = [
 ]
 
 
-'''
-    작성이 모두 끝난 후
-    > fab new_initServer
-    소스가 변경된 후
-    > fab update
-'''
-
 def newInitServer():
     _setup()
     update()
-
 
 def _setup():
     _init_apt()
@@ -79,13 +63,8 @@ def _install_apt_packages(requires):
 def _making_virtualenv():
     if not exists('~/.virtualenvs'):
         
-        # 가상환경폴더
-        # run 구동 > ubuntu 소유
-        # sudo 구동 > root 소유
         run('mkdir ~/.virtualenvs')
-        # 패키지 설치
         sudo('pip3 install virtualenv virtualenvwrapper')
-        # 환경변수 반영 및 쉘(윈도우의 배치) 구동 가상환경 구축
         cmd = '''
             "# python virtualenv global setting
             export WORKON_HOME = ~/.virtualenvs
